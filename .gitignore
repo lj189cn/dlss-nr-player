@@ -1,0 +1,15 @@
+build/
+*.o
+*.so
+*.so.*
+*.dll
+*.bin
+*.log
+*.mp4
+*.y4m
+*.rgba
+*.png
+*.jpg
+__pycache__/
+.cache/
+third_party/DLSSNR-AMD/

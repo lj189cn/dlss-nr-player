@@ -1,0 +1,30 @@
+dlss-nr-player
+==============
+
+This repository contains only the Linux host/glue code (MIT). It does not
+contain NVIDIA binaries, model weights, DLSSNR-AMD binaries, VapourSynth
+binaries, mpv, VLC, or FFmpeg.
+
+Third-party components referenced or partially included:
+
+- DLSSNR-AMD (MIT)
+  https://github.com/mochizuki0323/DLSSNR-AMD
+  The Vulkan compute implementation of the DLSS 5 NR network. Users must obtain
+  the source separately; this repository does not vendor it.
+
+- VapourSynth R81 API 4 headers (LGPL-2.1)
+  https://github.com/vapoursynth/vapoursynth
+  third_party/vapoursynth/include/*.h, third_party/vapoursynth/COPYING.LESSER
+  These headers are used only to compile the plugin.
+
+- AMD FidelityFX Super Resolution 1 (MIT)
+  Included in DLSSNR-AMD's runtime shaders; not redistributed here.
+
+- NVIDIA DLSS / nvngx_dlssnr.dll and the DLSS 5 NR model weights
+  Proprietary. Not included. Users must supply their own legally obtained copy;
+  do not redistribute.
+
+- mpv, FFmpeg, VLC, VapourSynth runtime
+  Separate projects with their own licenses; not bundled.
+
+dlss-nr-player is not affiliated with, endorsed by, or sponsored by NVIDIA or AMD.
