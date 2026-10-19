@@ -27,7 +27,7 @@
 namespace dnr {
 namespace {
 
-constexpr const char* kDefaultRoot = "/home/retro/dlssnr-test";
+constexpr const char* kDefaultRoot = "";
 constexpr const char* kVersion = "dnr 0.1.0";
 
 bool has_device_extension(VkPhysicalDevice pd, const char* name) {
@@ -262,6 +262,8 @@ Core::Core(const dnr_config& cfg, std::string& error) : impl_(new Impl) {
     // 把 runtime 的诊断从 stdout 挪走（verbose=0 时直接丢弃）。必须在 Runtime 构造之前设。
     nr::set_log_sink(cfg.verbose > 0 ? runtime_log_stderr : runtime_log_silent);
     const std::string root = resolve_root(cfg);
+    if (root.empty())
+        throw std::invalid_argument("DNR_ROOT or cfg.root is required (directory containing dlssnr-amd/)");
 
     try {
         const std::string gpu = select_gpu(cfg);
